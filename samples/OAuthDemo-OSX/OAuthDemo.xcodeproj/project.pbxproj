@@ -50,6 +50,10 @@
 		F49C1CF31363770F000CDE02 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F49C1CF21363770F000CDE02 /* libxml2.dylib */; };
 		F49C1D0213637932000CDE02 /* zkAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = F49C1D0113637932000CDE02 /* zkAuthentication.m */; };
 		F49C1D0E13639382000CDE02 /* QueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = F49C1D0D13639382000CDE02 /* QueryController.m */; };
+		FD12593216DF1BAF003373FF /* ZKDescribeQuickActionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FD12593116DF1BA6003373FF /* ZKDescribeQuickActionResult.m */; };
+		FD12593516DF1BCD003373FF /* ZKDescribeAvailableQuickActionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FD12593416DF1BCD003373FF /* ZKDescribeAvailableQuickActionResult.m */; };
+		FD12594016DFB801003373FF /* ZKPerformQuickActionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FD12593F16DFB801003373FF /* ZKPerformQuickActionResult.m */; };
+		FD12594316DFB80B003373FF /* ZKError.m in Sources */ = {isa = PBXBuildFile; fileRef = FD12594216DFB80A003373FF /* ZKError.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +144,14 @@
 		F49C1D0113637932000CDE02 /* zkAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = zkAuthentication.m; path = ../../../zkSforce/zkAuthentication.m; sourceTree = "<group>"; };
 		F49C1D0C13639381000CDE02 /* QueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QueryController.h; path = ../QueryController.h; sourceTree = "<group>"; };
 		F49C1D0D13639382000CDE02 /* QueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QueryController.m; path = ../QueryController.m; sourceTree = "<group>"; };
+		FD12593016DF1BA6003373FF /* ZKDescribeQuickActionResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZKDescribeQuickActionResult.h; path = ../../../zkSforce/ZKDescribeQuickActionResult.h; sourceTree = "<group>"; };
+		FD12593116DF1BA6003373FF /* ZKDescribeQuickActionResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ZKDescribeQuickActionResult.m; path = ../../../zkSforce/ZKDescribeQuickActionResult.m; sourceTree = "<group>"; };
+		FD12593316DF1BCD003373FF /* ZKDescribeAvailableQuickActionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZKDescribeAvailableQuickActionResult.h; path = ../../../zkSforce/ZKDescribeAvailableQuickActionResult.h; sourceTree = "<group>"; };
+		FD12593416DF1BCD003373FF /* ZKDescribeAvailableQuickActionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZKDescribeAvailableQuickActionResult.m; path = ../../../zkSforce/ZKDescribeAvailableQuickActionResult.m; sourceTree = "<group>"; };
+		FD12593E16DFB800003373FF /* ZKPerformQuickActionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZKPerformQuickActionResult.h; path = ../../../zkSforce/ZKPerformQuickActionResult.h; sourceTree = "<group>"; };
+		FD12593F16DFB801003373FF /* ZKPerformQuickActionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZKPerformQuickActionResult.m; path = ../../../zkSforce/ZKPerformQuickActionResult.m; sourceTree = "<group>"; };
+		FD12594116DFB80A003373FF /* ZKError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZKError.h; path = ../../../zkSforce/ZKError.h; sourceTree = "<group>"; };
+		FD12594216DFB80A003373FF /* ZKError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZKError.m; path = ../../../zkSforce/ZKError.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +243,8 @@
 				F49C1C9213637547000CDE02 /* zkBaseClient.m */,
 				F49C1C9313637547000CDE02 /* zkChildRelationship.h */,
 				F49C1C9413637547000CDE02 /* zkChildRelationship.m */,
+				FD12593316DF1BCD003373FF /* ZKDescribeAvailableQuickActionResult.h */,
+				FD12593416DF1BCD003373FF /* ZKDescribeAvailableQuickActionResult.m */,
 				F49C1C9513637547000CDE02 /* zkDescribeField.h */,
 				F49C1C9613637547000CDE02 /* zkDescribeField.m */,
 				F49C1C9713637547000CDE02 /* zkDescribeGlobalSObject.h */,
@@ -251,16 +265,22 @@
 				F49C1CA613637547000CDE02 /* ZKDescribeLayoutRow.m */,
 				F49C1CA713637547000CDE02 /* ZKDescribeLayoutSection.h */,
 				F49C1CA813637547000CDE02 /* ZKDescribeLayoutSection.m */,
+				FD12593016DF1BA6003373FF /* ZKDescribeQuickActionResult.h */,
+				FD12593116DF1BA6003373FF /* ZKDescribeQuickActionResult.m */,
 				F49C1CA913637547000CDE02 /* zkDescribeSObject.h */,
 				F49C1CAA13637547000CDE02 /* zkDescribeSObject.m */,
 				F49C1CAB13637547000CDE02 /* zkEnvelope.h */,
 				F49C1CAC13637547000CDE02 /* zkEnvelope.m */,
+				FD12594116DFB80A003373FF /* ZKError.h */,
+				FD12594216DFB80A003373FF /* ZKError.m */,
 				F49C1CAD13637547000CDE02 /* zkLoginResult.h */,
 				F49C1CAE13637547000CDE02 /* zkLoginResult.m */,
 				F49C1CAF13637547000CDE02 /* zkParser.h */,
 				F49C1CB013637547000CDE02 /* zkParser.m */,
 				F49C1CB113637547000CDE02 /* ZKPartnerEnvelope.h */,
 				F49C1CB213637547000CDE02 /* ZKPartnerEnvelope.m */,
+				FD12593E16DFB800003373FF /* ZKPerformQuickActionResult.h */,
+				FD12593F16DFB801003373FF /* ZKPerformQuickActionResult.m */,
 				F49C1CB313637547000CDE02 /* ZKPicklistEntry.h */,
 				F49C1CB413637547000CDE02 /* ZKPicklistEntry.m */,
 				F49C1CB513637547000CDE02 /* ZKPicklistForRecordType.h */,
@@ -397,6 +417,10 @@
 				F48F13DE157DC52100CB2A50 /* zkQueryResult+NSTableView.m in Sources */,
 				F48F13E3157DC54600CB2A50 /* ZKDescribeTab.m in Sources */,
 				F48F13E4157DC54600CB2A50 /* ZKDescribeTabSetResult.m in Sources */,
+				FD12593216DF1BAF003373FF /* ZKDescribeQuickActionResult.m in Sources */,
+				FD12593516DF1BCD003373FF /* ZKDescribeAvailableQuickActionResult.m in Sources */,
+				FD12594016DFB801003373FF /* ZKPerformQuickActionResult.m in Sources */,
+				FD12594316DFB80B003373FF /* ZKError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

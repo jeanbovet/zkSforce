@@ -9,6 +9,7 @@ zkSforce supports all the popular methods in the partner web services API
  * create, update, delete
  * search, query, queryAll
  * OAuth support for refresh tokens
+ * quick action support (describe, create)
 
 The following methods are not currently supported
 

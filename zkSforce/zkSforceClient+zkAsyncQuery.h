@@ -27,6 +27,8 @@
 
 #import "zkSforce.h"
 
+@class ZKSObject;
+
 @interface ZKSforceClient (zkAsyncQuery)
 
 typedef void (^zkFailWithExceptionBlock)        (NSException *e);
@@ -125,6 +127,9 @@ typedef void (^zkCompleteVoidBlock)             (void);
                      failBlock:(zkFailWithExceptionBlock)failBlock
                  completeBlock:(zkCompleteSObjectDescribeBlock)completeBlock;
 
+-(void) performDescribeSearchScopeOrder:(zkFailWithExceptionBlock)failBlock
+                          completeBlock:(zkCompleteArrayBlock)completeBlock;
+
 -(void) performDescribeLayout:(NSString *)sobjectType 
                 recordTypeIds:(NSArray *)recordTypeIds
                     failBlock:(zkFailWithExceptionBlock)failBlock
@@ -132,6 +137,21 @@ typedef void (^zkCompleteVoidBlock)             (void);
 
 -(void) performDescribeTabsWithFailBlock:(zkFailWithExceptionBlock)failBlock
                            completeBlock:(zkCompleteArrayBlock)completeBlock;
+
+
+// Quick actions
+-(void) performDescribeAvailableQuickActions:(NSString *)sobjectType
+                                   failBlock:(zkFailWithExceptionBlock)failBlock
+                               completeBlock:(zkCompleteArrayBlock)completeBlock;
+
+-(void) performDescribeQuickActions:(NSArray *)qaNames
+                          failBlock:(zkFailWithExceptionBlock)failBlock
+                      completeBlock:(zkCompleteArrayBlock)completeBlock;
+
+-(void) performQuickAction:(NSString *)qaName
+                   sobject:(ZKSObject *)sobject
+                 failBlock:(zkFailWithExceptionBlock)failBlock
+             completeBlock:(zkCompleteArrayBlock)completeBlock;
 
 
 // Utility methods

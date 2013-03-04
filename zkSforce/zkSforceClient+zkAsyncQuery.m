@@ -203,7 +203,19 @@
            }];
 }
 
--(void) performDescribeLayout:(NSString *)sobjectType 
+-(void) performDescribeSearchScopeOrder:(zkFailWithExceptionBlock)failBlock
+                 completeBlock:(zkCompleteArrayBlock)completeBlock {
+    
+    [self performRequest:^NSObject *(void) {
+        return [self describeSearchScopeOrder];
+    }
+               failBlock:failBlock
+           completeBlock:^(NSObject *r) {
+               if (completeBlock) completeBlock((NSArray *)r);
+           }];
+}
+
+-(void) performDescribeLayout:(NSString *)sobjectType
                 recordTypeIds:(NSArray *)recordTypeIds 
                     failBlock:(zkFailWithExceptionBlock)failBlock 
                 completeBlock:(zkCompleteLayoutResultBlock)completeBlock {
@@ -222,14 +234,50 @@
                            completeBlock:(zkCompleteArrayBlock)completeBlock {
     
     [self performRequest:^NSObject *(void) {
-            return [self describeTabs];
-        }
+        return [self describeTabs];
+    }
                failBlock:failBlock
            completeBlock:^(NSObject *r) {
                if (completeBlock) completeBlock((NSArray *)r);
            }];
 }
 
+-(void) performDescribeAvailableQuickActions:(NSString *)sobjectType
+                                   failBlock:(zkFailWithExceptionBlock)failBlock
+                               completeBlock:(zkCompleteArrayBlock)completeBlock {
+    [self performRequest:^NSObject *(void) {
+        return [self describeAvailableQuickActions:sobjectType];
+    }
+               failBlock:failBlock
+           completeBlock:^(NSObject *r) {
+               if (completeBlock) completeBlock((NSArray *)r);
+           }];
+}
+
+-(void) performDescribeQuickActions:(NSArray *)qaNames
+                          failBlock:(zkFailWithExceptionBlock)failBlock
+                      completeBlock:(zkCompleteArrayBlock)completeBlock {
+    [self performRequest:^NSObject *(void) {
+        return [self describeQuickActions:qaNames];
+    }
+               failBlock:failBlock
+           completeBlock:^(NSObject *r) {
+               if (completeBlock) completeBlock((NSArray *)r);
+           }];
+}
+
+-(void) performQuickAction:(NSString *)qaName
+                   sobject:(ZKSObject *)sobject
+                 failBlock:(zkFailWithExceptionBlock)failBlock
+             completeBlock:(zkCompleteArrayBlock)completeBlock {
+    [self performRequest:^NSObject *(void) {
+        return [self performQuickAction:qaName sobject:sobject];
+    }
+               failBlock:failBlock
+           completeBlock:^(NSObject *r) {
+               if (completeBlock) completeBlock((NSArray *)r);
+           }];
+}
 
 -(void) performSetPassword:(NSString *)newPassword 
                  forUserId:(NSString *)userId 
