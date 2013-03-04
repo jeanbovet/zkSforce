@@ -47,7 +47,7 @@
 
 // configuration for where to connect to and what api version to use
 //////////////////////////////////////////////////////////////////////////////////////
-// Set the default API version to connect to. (defaults to v27.0)
+// Set the default API version to connect to. (defaults to v28.0)
 // login will automatically detect if the endpoint doesn't have this
 // version and automatically retry on a lower API version.
 @property (assign) int preferedApiVersion;
@@ -116,6 +116,18 @@
 // makes a describeTabs call and returns an Array of ZKDescribeTabResult instances.
 // these are NOT cached, regardless of the describe caching flag.
 - (NSArray *)describeTabs;
+
+// returns the list of available quick actions for the specified sobject
+- (NSArray *)describeAvailableQuickActions:(NSString *)sobjectName;
+
+// describes the specified quick actions
+- (NSArray *)describeQuickActions:(NSArray *)qaNames;
+
+// perform the specified quick action and return an array of ZKPerformQuickActionResult
+- (NSArray *)performQuickAction:(NSString *)qaName sobject:(id)sobject;
+
+// Makes describeSearchScopeOrder call and returns an Array of ZKDescribeGlobalSObject 
+- (NSArray *)describeSearchScopeOrder;
 
 // makes a search call with the passed in SOSL expression, returns an array of ZKSObject
 // instances.

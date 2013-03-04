@@ -34,6 +34,10 @@
 #import "ZKDescribeLayoutResult.h"
 #import "ZKDescribeTabSetResult.h"
 
+#import "ZKDescribeAvailableQuickActionResult.h"
+#import "ZKDescribeQuickActionResult.h"
+#import "ZKPerformQuickActionResult.h"
+
 static const int SAVE_BATCH_SIZE = 25;
 
 @interface ZKSforceClient (Private)
@@ -50,7 +54,7 @@ static const int SAVE_BATCH_SIZE = 25;
 
 - (id)init {
 	self = [super init];
-	preferedApiVersion = 27;
+	preferedApiVersion = 28;
 	[self setLoginProtocolAndHost:@"https://www.salesforce.com"];
 	updateMru = NO;
 	cacheDescribes = NO;
@@ -288,6 +292,65 @@ static const int SAVE_BATCH_SIZE = 25;
 	return desc;
 }
 
+- (NSArray *)describeAvailableQuickActions:(NSString *)sobjectName {
+	if (!authSource) return nil;
+	[self checkSession];
+	ZKEnvelope *env = [[[ZKPartnerEnvelope alloc] initWithSessionHeader:[authSource sessionId] clientId:clientId] autorelease];
+	[env startElement:@"describeAvailableQuickActions"];
+	[env addElement:@"parentType" elemValue:sobjectName];
+	[env endElement:@"describeAvailableQuickActions"];
+	[env endElement:@"s:Body"];
+    
+	zkElement *dr = [self sendRequest:[env end]];
+    NSMutableArray *results = [NSMutableArray array];
+    for (zkElement *res in [dr childElements:@"result"]) {
+        ZKDescribeAvailableQuickActionResult *dt = [[[ZKDescribeAvailableQuickActionResult alloc] initWithXmlElement:res] autorelease];
+        [results addObject:dt];
+    }
+    return results;
+}
+
+- (NSArray *)describeQuickActions:(NSArray *)qaNames {
+	if (!authSource) return nil;
+	[self checkSession];
+	ZKEnvelope *env = [[[ZKPartnerEnvelope alloc] initWithSessionHeader:[authSource sessionId] clientId:clientId] autorelease];
+	[env startElement:@"describeQuickAction"];
+    [env addElementArray:@"quickActions" elemValue:qaNames];
+	[env endElement:@"describeQuickAction"];
+	[env endElement:@"s:Body"];
+    
+	zkElement *dr = [self sendRequest:[env end]];
+    NSMutableArray *results = [NSMutableArray array];
+    for (zkElement *res in [dr childElements:@"result"]) {
+        ZKDescribeQuickActionResult *dt = [[[ZKDescribeQuickActionResult alloc] initWithXmlElement:res] autorelease];
+        [results addObject:dt];
+    }
+    return results;
+}
+
+- (NSArray *)performQuickAction:(NSString *)qaName sobject:(id)sobject {    
+	if (!authSource) return nil;
+	[self checkSession];
+	ZKEnvelope *env = [[[ZKPartnerEnvelope alloc] initWithSessionHeader:[authSource sessionId] clientId:clientId] autorelease];
+	[env startElement:@"performQuickAction"];
+	[env startElement:@"quickActions"];
+    
+    [env addElementString:@"quickActionName" elemValue:qaName];
+    [env addElementSObject:@"records" elemValue:sobject];
+    
+	[env endElement:@"quickActions"];
+	[env endElement:@"performQuickAction"];
+	[env endElement:@"s:Body"];
+    
+	zkElement *dr = [self sendRequest:[env end]];
+    NSMutableArray *results = [NSMutableArray array];
+    for (zkElement *res in [dr childElements:@"result"]) {
+        ZKPerformQuickActionResult *qar = [[[ZKPerformQuickActionResult alloc] initWithXmlElement:res] autorelease];
+        [results addObject:qar];
+    }
+    return results;
+}
+
 - (NSArray *)describeTabs {
     if (!authSource) return nil;
     [self checkSession];
@@ -300,6 +363,23 @@ static const int SAVE_BATCH_SIZE = 25;
     NSMutableArray *results = [NSMutableArray array];
     for (zkElement *res in [dr childElements:@"result"]) {
         ZKDescribeTabSetResult *dt = [[[ZKDescribeTabSetResult alloc] initWithXmlElement:res] autorelease];
+        [results addObject:dt];
+    }
+    return results;
+}
+
+- (NSArray *)describeSearchScopeOrder {
+    if (!authSource) return nil;
+    [self checkSession];
+    ZKEnvelope *env = [[[ZKPartnerEnvelope alloc] initWithSessionHeader:[authSource sessionId] clientId:clientId] autorelease];
+    [env startElement:@"describeSearchScopeOrder"];
+    [env endElement:@"describeSearchScopeOrder"];
+    [env endElement:@"s:Body"];
+    
+    zkElement *dr = [self sendRequest:[env end]];
+    NSMutableArray *results = [NSMutableArray array];
+    for (zkElement *res in [dr childElements:@"result"]) {
+        ZKDescribeGlobalSObject *dt = [[[ZKDescribeGlobalSObject alloc] initWithXmlElement:res] autorelease];
         [results addObject:dt];
     }
     return results;
