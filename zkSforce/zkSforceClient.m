@@ -279,7 +279,7 @@ static const int SAVE_BATCH_SIZE = 25;
 - (ZKDescribeLayoutResult *)describeLayout:(NSString *)sobjectName recordTypeIds:(NSArray *)recordTypeIds {
 	if (!authSource) return nil;
 	[self checkSession];
-	ZKEnvelope *env = [[[ZKPartnerEnvelope alloc] initWithSessionHeader:[authSource sessionId] clientId:clientId] autorelease];
+	ZKEnvelope *env = [[[ZKPartnerEnvelope alloc] initWithSessionHeader:[authSource sessionId] clientId:clientId ifModifiedSince:nil] autorelease];
 	[env startElement:@"describeLayout"];
 	[env addElement:@"sObjectType" elemValue:sobjectName];
 	[env addElementArray:@"recordTypeIds" elemValue:recordTypeIds];

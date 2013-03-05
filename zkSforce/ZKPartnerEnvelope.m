@@ -27,6 +27,12 @@
 	return [self initWithSessionAndMruHeaders:sessionId mru:NO clientId:clientId];
 }
 
+- (id)initWithSessionHeader:(NSString *)sessionId clientId:(NSString *)clientId ifModifiedSince:(NSDate*)ifModifiedSince {
+	return [self initWithSessionAndMruHeaders:sessionId mru:NO clientId:clientId additionalHeaders:^(ZKEnvelope *envelop) {
+        [envelop writeConditionalRequestHeader:ifModifiedSince];
+    }];
+}
+
 - (id)initWithSessionAndMruHeaders:(NSString *)sessionId mru:(BOOL)mru clientId:(NSString *)clientId {
     return [self initWithSessionAndMruHeaders:sessionId mru:mru clientId:clientId additionalHeaders:nil];
 }

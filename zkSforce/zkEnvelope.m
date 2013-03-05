@@ -21,6 +21,7 @@
 
 
 #import "zkEnvelope.h"
+#import "zkHelper.h"
 
 @implementation ZKEnvelope
 
@@ -66,6 +67,14 @@ enum envState {
 	[self startElement:@"MruHeader"];
 	[self addElement:@"updateMru" elemValue:@"true"];
 	[self endElement:@"MruHeader"];
+}
+
+- (void)writeConditionalRequestHeader:(NSDate*)ifModifiedSince {
+	if (nil == ifModifiedSince) return;
+	[self moveToHeaders];
+	[self startElement:@"ConditionalRequestHeader"];
+	[self addElementString:@"ifModifiedSince" elemValue:[zkHelper dateTimeStringFromValue:ifModifiedSince]];
+	[self endElement:@"ConditionalRequestHeader"];
 }
 
 - (void) moveToBody {

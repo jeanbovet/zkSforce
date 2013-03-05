@@ -52,7 +52,18 @@ static NSString *SOAP_NS = @"http://schemas.xmlsoap.org/soap/envelope/";
 	// todo, support request compression
 	// todo, support response compression
 	NSData *respPayload = [NSURLConnection sendSynchronousRequest:request returningResponse:&resp error:&err];
-	//NSLog(@"response \r\n%@", [NSString stringWithCString:[respPayload bytes] length:[respPayload length]]);
+    
+#ifdef DEBUG
+    NSLog(@"********************");
+    NSLog(@"*** Send Request ***");
+    NSLog(@"HTTP headers:\n%@", [request allHTTPHeaderFields]);
+    NSLog(@"Payload:\n%@", payload);
+    NSLog(@"Response header:\n%@", [resp allHeaderFields]);
+    NSLog(@"Response payload:\n%@", [[[NSString alloc] initWithBytes:[respPayload bytes] length:[respPayload length] encoding:NSUTF8StringEncoding] autorelease]);
+    NSLog(@"********************");
+
+#endif
+    
 	zkElement *root = [zkParser parseData:respPayload];
 	if (root == nil)	
 		@throw [NSException exceptionWithName:@"Xml error" reason:@"Unable to parse XML returned by server" userInfo:nil];

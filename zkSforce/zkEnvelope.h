@@ -31,6 +31,7 @@
 - (void)writeSessionHeader:(NSString *)sessionId;
 - (void)writeCallOptionsHeader:(NSString *)callOptions;
 - (void)writeMruHeader:(BOOL)updateMru;
+- (void)writeConditionalRequestHeader:(NSDate*)ifModifiedSince;
 
 - (void) moveToHeaders;
 - (void) moveToBody;

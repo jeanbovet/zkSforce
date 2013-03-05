@@ -54,6 +54,7 @@
 		FD12593516DF1BCD003373FF /* ZKDescribeAvailableQuickActionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FD12593416DF1BCD003373FF /* ZKDescribeAvailableQuickActionResult.m */; };
 		FD12594016DFB801003373FF /* ZKPerformQuickActionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FD12593F16DFB801003373FF /* ZKPerformQuickActionResult.m */; };
 		FD12594316DFB80B003373FF /* ZKError.m in Sources */ = {isa = PBXBuildFile; fileRef = FD12594216DFB80A003373FF /* ZKError.m */; };
+		FD834C7516E56E93002CE369 /* zkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD834C7416E56E93002CE369 /* zkHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +153,8 @@
 		FD12593F16DFB801003373FF /* ZKPerformQuickActionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZKPerformQuickActionResult.m; path = ../../../zkSforce/ZKPerformQuickActionResult.m; sourceTree = "<group>"; };
 		FD12594116DFB80A003373FF /* ZKError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZKError.h; path = ../../../zkSforce/ZKError.h; sourceTree = "<group>"; };
 		FD12594216DFB80A003373FF /* ZKError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZKError.m; path = ../../../zkSforce/ZKError.m; sourceTree = "<group>"; };
+		FD834C7316E56E93002CE369 /* zkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zkHelper.h; path = ../../../zkSforce/zkHelper.h; sourceTree = "<group>"; };
+		FD834C7416E56E93002CE369 /* zkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = zkHelper.m; path = ../../../zkSforce/zkHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +276,8 @@
 				F49C1CAC13637547000CDE02 /* zkEnvelope.m */,
 				FD12594116DFB80A003373FF /* ZKError.h */,
 				FD12594216DFB80A003373FF /* ZKError.m */,
+				FD834C7316E56E93002CE369 /* zkHelper.h */,
+				FD834C7416E56E93002CE369 /* zkHelper.m */,
 				F49C1CAD13637547000CDE02 /* zkLoginResult.h */,
 				F49C1CAE13637547000CDE02 /* zkLoginResult.m */,
 				F49C1CAF13637547000CDE02 /* zkParser.h */,
@@ -421,6 +426,7 @@
 				FD12593516DF1BCD003373FF /* ZKDescribeAvailableQuickActionResult.m in Sources */,
 				FD12594016DFB801003373FF /* ZKPerformQuickActionResult.m in Sources */,
 				FD12594316DFB80B003373FF /* ZKError.m in Sources */,
+				FD834C7516E56E93002CE369 /* zkHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -57,6 +57,7 @@
 		FD1259BB16DFB82F003373FF /* zkSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FD12599116DFB82F003373FF /* zkSObject.m */; };
 		FD1259BC16DFB82F003373FF /* zkUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FD12599316DFB82F003373FF /* zkUserInfo.m */; };
 		FD1259BD16DFB82F003373FF /* zkXmlDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD12599516DFB82F003373FF /* zkXmlDeserializer.m */; };
+		FD834C7816E56EB3002CE369 /* zkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD834C7716E56EB3002CE369 /* zkHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +157,8 @@
 		FD12599316DFB82F003373FF /* zkUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkUserInfo.m; sourceTree = "<group>"; };
 		FD12599416DFB82F003373FF /* zkXmlDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkXmlDeserializer.h; sourceTree = "<group>"; };
 		FD12599516DFB82F003373FF /* zkXmlDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkXmlDeserializer.m; sourceTree = "<group>"; };
+		FD834C7616E56EB3002CE369 /* zkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkHelper.h; sourceTree = "<group>"; };
+		FD834C7716E56EB3002CE369 /* zkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +281,8 @@
 				FD12596A16DFB82F003373FF /* zkEnvelope.m */,
 				FD12596B16DFB82F003373FF /* ZKError.h */,
 				FD12596C16DFB82F003373FF /* ZKError.m */,
+				FD834C7616E56EB3002CE369 /* zkHelper.h */,
+				FD834C7716E56EB3002CE369 /* zkHelper.m */,
 				FD12596D16DFB82F003373FF /* zkLoginResult.h */,
 				FD12596E16DFB82F003373FF /* zkLoginResult.m */,
 				FD12596F16DFB82F003373FF /* zkParser.h */,
@@ -430,6 +435,7 @@
 				FD1259BB16DFB82F003373FF /* zkSObject.m in Sources */,
 				FD1259BC16DFB82F003373FF /* zkUserInfo.m in Sources */,
 				FD1259BD16DFB82F003373FF /* zkXmlDeserializer.m in Sources */,
+				FD834C7816E56EB3002CE369 /* zkHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
